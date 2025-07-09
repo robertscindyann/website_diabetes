@@ -1,0 +1,842 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/* End CSS RESET */
+
+
+:root{
+--grey:#707070;
+--orange:#DF5421;
+}
+
+body{
+font-family: 'Roboto', sans-serif;
+}
+
+p{
+    line-height: 1.37;
+    color: var(--grey);
+}
+h3, h4{
+    line-height: 1.37;
+}
+#skipToMainContent{
+  position: absolute;
+  left: -9999px;
+  z-index: 999;
+  padding: 1em;
+  background-color: black;
+  color: white;
+  opacity: 0
+}
+#skipToMainContent:focus{
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 1;
+}
+#wrapper{
+    /* max-width: 1280px; Desktop Display*/
+    max-width: 647px;
+    min-width: 430px;
+    margin: 0 auto;
+    
+}
+header{
+    background-color:var(--orange);
+    height: 74px;
+    display: flex;
+    justify-content: space-around;
+}
+#brandWrapper{
+    display: flex;
+    align-items: center;
+}
+
+.logoShape{
+    background: #fff;
+    height: 16px;
+    position: relative;
+    width: .75px;
+    margin-right: 8px;
+    transform: rotate(45deg);
+    border-radius: 15px;
+    cursor: pointer;
+    z-index: 2000;
+}
+.logoShape::before{
+    background: #fff;
+    content: "";
+    height: 12px;
+    position: absolute;
+    top: 2.5px;
+    right: 3px;
+    width: .75px;
+    margin-bottom: 2.5px;
+    border-radius: 15px;
+}
+.logoShape::after{
+    background: #fff;
+    content: "";
+    height: 12px;
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    width: .75px;
+    margin-bottom: 2.5px;
+    border-radius: 15px;
+}
+#logo{
+    font-size: 1.25rem;
+    color: #fff;
+    text-decoration: none;
+}
+[type="checkbox"]{
+    width: 30px;
+    opacity: 0;
+    position: relative;
+    /* top: 2px; */
+    /* left: 65px; */
+    left: 20%;
+    padding: 4px 6px;
+}
+
+nav{
+    background-color: #fff;
+    display: none;
+    position: absolute;
+    top: 74px;
+    text-align: center;
+    width: 100vw;
+    z-index: 3000;
+}
+
+nav li{
+    text-decoration: none;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--grey);
+}
+
+nav li:last-child{
+    padding-bottom: 25px;
+}
+
+nav li a{
+    text-decoration: none;
+    width: 100%;
+    color: var(--orange);  
+}
+
+#checkbox:checked ~ nav{
+    transform: translateY(0%);
+    max-height: 290px;
+    background-color: #fff;
+    display: block;
+}
+#checkbox:checked ~ nav a{
+    visibility: visible;
+}
+
+#hamburgerWrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    cursor: pointer;
+    padding: 6px;
+  
+
+}
+.hamburger{
+    background-color: #fff;
+    position: relative;
+    width: 1.5px;
+    height: 20px;
+    /* margin-right: 8px; */
+    transform: rotate(90deg);
+    border-radius: 15px;
+    left: 20%;
+}
+.hamburger:before{
+    content: '';
+    width: 1.5px;
+    height: 20px;
+    border-radius: 15px;
+    position: absolute;
+    right: 5px;
+    background-color: #fff;
+}
+.hamburger:after{
+    content: '';
+    width: 1.5px;
+    height: 20px;
+    border-radius: 15px;
+    position: absolute;
+    left: 5px;
+    background-color: #fff;
+}
+
+h1{
+    font-size: 1.53rem;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--orange);
+    font-weight: 500;
+    padding: 12px 0 6px;
+}
+
+main p{
+    text-align: center;
+    padding: 0 35px; 
+}
+
+main img{
+    display: block;
+    max-width: 100%;
+    padding: 12px 0 15px;
+}
+
+#whatIsDiabetes h2{
+    font-size: 1.25rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin-left: 35px;
+    padding-bottom: 6px;
+}
+#whatIsDiabetes h3{
+    font-size: 1.125rem;
+    margin-left: 35px;
+    color: var(--orange);
+    padding: 16px 0 5px;
+}
+#whatIsDiabetes h4{
+    margin-left: 35px;
+    padding: 6px 0 5px 0;
+    font-weight: 700;
+    color: var(--grey);
+}
+#whatIsDiabetes p{
+    color: var(--grey);
+    padding: 0 35px;
+}
+#whatIsDiabetes p:nth-child(2){
+    margin-bottom: 10px;
+}
+#whatIsDiabetes button{
+    background-color: var(--orange);
+    border: none;
+    border-radius: 3px;
+    padding: 12px 22px;
+    color: #fff;
+    margin: 16px 0 30px 35px;
+}
+
+#foodIntoEnergy img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transform: scaleX(-1);
+}
+#foodIntoEnergy h3{
+    color: var(--orange);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 15px 10px 6px 35px;
+}
+
+#foodIntoEnergy p{
+    padding: 0 35px;
+    margin-bottom: 9px;
+}
+#foodIntoEnergy h4{
+    color: var(--orange);
+    margin: 0 35px 9px;
+    font-weight: 500;
+    padding-top: 10px;
+}
+
+#pancreas img{
+    display: block;
+    max-width: 100%;
+    margin: 40px 0 15px;
+}
+#pancreas h3{
+    color: var(--orange);
+    font-size: 1.125rem;
+    margin-left: 35px;
+}
+#pancreas p{
+    margin: 6px 0 40px;
+    padding: 0 35px;
+}
+
+iframe{
+    width: 100%;
+    margin: 0 auto 15px;
+}
+
+#insulinResistance h3{
+    color: var(--orange);
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin: 0 0 6px 35px;
+}
+#insulinResistance p{
+    margin: 6px 0 30px;
+    padding: 0 35px;
+}
+
+#preventDiabetes img{
+    max-width: 100%;
+    margin-bottom: 15px;
+}
+#preventDiabetes h2{
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    color: var(--orange);
+    margin: 0 0 6px 35px;
+}
+#preventDiabetes p{
+   padding: 0 34px;
+   margin-bottom: 20px;
+}
+
+#preventDiabetes button{
+    background-color: var(--orange);
+    border: none;
+    border-radius: 3px;
+    padding: 12px 22px;
+    color: #fff;
+    margin: 0 0 43px 35px;
+}
+
+#effectsOfDiabetes{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(4, auto);
+    margin: 0 34px 30px ;
+    gap: 8px;  
+}
+#effectsOfDiabetes h2{
+    color: var(--orange);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 6px;
+    grid-column: 1/-1;
+    grid-row: 1/2;
+    align-self: start;
+}
+#effectsOfDiabetes p{
+    margin: 0 auto 15px;
+    grid-column: 1/-1;
+    grid-row: 2/3;
+}
+.icon{
+    border: .8px solid var(--grey);
+    box-shadow: 0 8px 6px -6px var(--grey); 
+}
+
+.icon img{
+    max-width: 25%;
+    display: block;
+    margin: 32px auto 10px;
+    
+}
+.icon p{
+    padding: 0 20px;
+    text-align: center;
+}
+
+.kidney{
+    grid-column: 1/2;
+    grid-row: 3/4;
+}
+.thirsty{
+    grid-column: 2/-1;
+    grid-row: 3/4;
+}
+.bathroomFrequency{
+    grid-column: 1/2;
+    grid-row:4/-1;
+}
+.feelingTired{
+    grid-column: 2/-1;
+    grid-row:4/-1;
+}
+footer{
+    background-color: var(--orange);
+    text-align: center;
+    padding-bottom: 15px;
+}
+#logoComponent{
+    padding: 15px 0 5px 22px;
+}
+footer img{
+    width: 35%;
+    display: block;
+    margin: 0 auto;
+}
+address{
+    color: #fff;
+    font-size: 0.67rem;
+    margin-bottom: 5px;
+}
+
+#contactUs{
+    color: #fff;
+    font-size:0.77rem;
+    display: inline-block;
+    margin: 5px 0 15px;
+}
+.eduPurposeOnly{
+    color: #fff;
+    font-size: 0.77rem;
+    text-transform: uppercase;
+    padding: 15px 0 10px;
+}
+.iconCredits{
+    display: block;
+    color: #fff;
+    font-size:0.77rem;
+    padding-bottom: 8px;
+}
+
+#socialMedia{
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    column-gap: 25px;
+    max-width: 15%;
+   
+}
+/**************************/
+/****SUPERFOODS SECTION ***/
+/**************************/
+#superfoodsContainer{
+   margin: 0 34px;
+}
+#superfoods h1{
+    font-size: 1.53rem;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 700;
+    padding: 12px 0 8px;
+    text-align: left;
+}
+#superfoods h4{
+    font-weight: 700;
+    color: var(--grey);
+}
+#superfoods p {
+    margin-bottom: 17px;
+}
+#superfoodsImages{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    gap: 17px;
+    justify-items: center;
+    align-items: center;
+    margin-bottom: 17px;
+}
+#superfoodsImages img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    display: block;
+}
+#tomatoBasedSoup{
+    width: 100%;
+    height: 100%;
+    grid-column: 1/2;
+    grid-row: 1/-1;
+    transform: scaleX(-1);
+}
+#tomatoBasedSoup img{
+    min-height: 293px;
+    max-height: 100%;
+}
+#salmon{
+    grid-column: 2/-1;
+    grid-row: 1/2;
+}
+#salad{
+    grid-column: 2/-1;
+    grid-row: 2/-1;
+}
+#mealPlanning{
+    padding-bottom: 15px;
+}
+#mealPlanning h1{
+    font-weight: 1.53;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 700;
+    margin: 17px 0 7px;  
+}
+#mealPlanning h2{
+    color: var(--orange);
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding-bottom: 6px;
+}
+#mealPlanning > p{
+    margin-bottom: 15px;
+}
+
+/**************************/
+/**** EXERCISE SECTION ***/
+/**************************/
+
+#exerciseContainer{
+   margin: 0 34px 30px; 
+}
+#exercise h1{
+    font-size: 1.53rem;
+    color: var(--orange);
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 13px 0 9px;
+    text-align: left;
+}
+#exercise img{
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+#exercise h2{
+    font-size: 1.25rem;
+    color: var(--orange);
+    text-transform: uppercase;
+    padding: 13px 0 9px;
+}
+
+/**************************/
+/**** RESOURCES SECTION ***/
+/**************************/
+#resourcesWrapper{
+    margin: 0 34px;
+}
+#resourceLinks{
+    margin-bottom: 15px;
+}
+#resourceLinks h2{
+    font-size: 1.53rem;
+    margin: 13px 0 8px;
+    text-align: left;
+    color: var(--orange);
+    text-transform: uppercase;
+    font-weight: 700;
+    }
+#resourceLinks a{
+    color: var(--grey);
+    display: block;
+    padding-bottom: 10px;
+}
+
+/**************************/
+/****** MEDIA QUERIES *****/
+/**************************/
+
+@media (min-width:600px){
+    #brandWrapper{
+        margin-left: 30px;
+    }
+    #hamburgerWrapper{
+        display: none;
+    }
+    nav{
+        display: block; 
+        width: 378px;
+        top: 0;
+        background-color: transparent;
+        position: static;
+    }
+
+    nav ul{
+        display: flex;
+        justify-content: space-evenly;
+    }
+    nav li{
+        padding: 0;
+        border-bottom: 0;
+    }
+    nav li:last-child{
+        padding-bottom: 0;
+    }
+    nav li a{
+        color: #fff; 
+        cursor: pointer;
+    }
+   
+    header{
+        justify-content: space-around;
+        align-items: center;
+    }
+   
+    main{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        margin-bottom: 20px;
+    }
+    main img{
+        padding: 0 0 20px;
+    }
+
+    h1{
+        font-size: 2.12rem;
+        color: #fff;
+        padding: 0;
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        z-index: 1000;
+        margin-top: 252.6px;
+    }
+    main p{
+        color: #fff;
+        font-size: 1.1rem;
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        z-index: 100;
+        margin-top: 291px;
+    }
+    picture{
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+    }
+    picture img{
+        padding: 0;
+    }
+    .overlay{
+        background-color: rgba(0, 0, 0, 0.30);
+        width: 100%;
+        grid-column: 1/-1;
+        grid-row: 1/-1;
+        z-index: 99;
+    }
+    button{
+        cursor: pointer;
+    }
+
+/**************************/
+/*** SUPERFOODS SECTION ***/
+/**************************/
+
+#superfoods h1{
+    margin-top: 0;
+}
+
+/**************************/
+/*** EXERCISE SECTION ***/
+/**************************/
+#exercise h1{
+    margin-top: 0;
+}
+
+}
+
+@media (min-width:631px){
+    #wrapper{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(8, auto);
+    }
+    header{
+        grid-column: 1/-1;
+        grid-row: 1/2;
+    }
+    h1{
+        margin-top: 178px; 
+    }
+    main{
+        grid-column: 1/-1;
+        grid-row: 2/3;
+        margin-bottom: 0;
+        padding-bottom: 20px;
+    }
+    main p{
+        margin-top: 216.4px;
+    }
+    #whatIsDiabetes{
+        grid-column: 1/2;
+        grid-row: 3/5;
+    }
+    
+    #foodIntoEnergy{
+        grid-column: 1/-1;
+        grid-row: 5/6;
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto 100px;
+        gap: 5px;
+    }
+    #foodIntoEnergy h3{
+        margin: 15px 10px 5px 10px;
+    }
+    #foodIntoEnergy h4{
+       padding: 5px 10px;
+       margin-left: 30px;
+       font-size: 1.1rem;
+    }
+  
+    #foodIntoEnergy p{
+        padding: 0 25px 0 10px;
+    }
+    #brokenDownProteins{
+        grid-column: 1/-1;
+    }
+    #brokenDownProteins p{
+        margin: 0;
+        padding-left: 35px;
+    }
+    #brokenDownProteins h4{
+        margin: 0;
+        padding-left: 35px;
+    }
+    #pancreas{
+        grid-column: 2/-1;
+        grid-row: 3/4;
+    }
+    #pancreas img{
+        margin: 0 0 25px;
+    }
+    #pancreas h3{
+        margin-left: 0;
+    }
+    #pancreas p{
+        padding: 0 10px 20px 0;
+        margin:6px 0 10px;
+    }
+  
+    #insulinResistance{
+        grid-column: 2/-1;
+        grid-row: 4/5;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr auto;
+    }
+    #insulinResistance div{
+        grid-row: 1/2;
+        grid-column: 1/-1;
+    }
+    #insulinResistance h3{
+        margin-left: 0;
+        margin-bottom: 0;
+    }
+    #insulinResistance p{
+        padding: 0 10px 0 0;
+    }
+
+    #effectsOfDiabetes{
+        grid-column: 1/-1;
+        grid-row: 7/8;
+    }
+    #preventDiabetes{
+        grid-column: 1/-1;
+        grid-row: 6/7;
+    }
+    #preventDiabetes img{
+        padding-top: 20px;
+    }
+   footer{
+    grid-column: 1/-1;
+    grid-row: 8/-1;
+   }
+   #preventDiabetes h2, #preventDiabetes p{
+    color: #fff;
+   }
+    #preventDiabetes h2{
+    padding-top: 30px;
+   }
+    #preventDiabetes button{
+    background-color: transparent;
+    border: 1px solid#fff;
+    }
+
+   #preventDiabetes{
+    background-color: var(--orange);
+    margin-bottom: 30px;
+    padding-top: 25px;
+    }
+    #preventDiabetes img{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    }
+}
+
+/* @media(min-width:673px){
+    #preventDiabetes{
+        background-color: var(--orange);
+        margin-bottom: 30px;
+        padding-top: 25px;
+    }
+    #preventDiabetes img{
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+
+    }
+    #preventDiabetes h2, #preventDiabetes p{
+        color: #fff;
+    }
+    #preventDiabetes h2{
+        padding-top: 30px;
+    }
+    #preventDiabetes button{
+        background-color: none;
+        border: 1px solid#fff;
+    }
+} */
+
+/* @media(min-width:680px){ 
+} */
